@@ -1,0 +1,38 @@
+server:
+  port: 8881
+spring:
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    password: root
+    timeout: 5000
+    lettuce:
+      pool:
+        max-active: 8
+        max-wait: 5000
+        max-idle: 8
+        min-idle: 0
+  datasource:
+    url: jdbc:mysql://localhost:3306/wc_chat?useSSL=false&serverTimezone=Asia/Shanghai&characterEncoding=utf8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: root
+    username: root
+  application:
+    name: chat
+  servlet:
+    multipart:
+      max-file-size: 10485760
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/,http://localhost:8762/eureka
+image:
+  uri: http://qiao.mynatapp.cc/img/
+  path: E:/workspace/seller/src/main/resources/static/img/
+logging:
+  config: classpath:logback.xml
+mybatis:
+  mapper-locations: classpath*:mapper/*.xml
+  type-aliases-package: com.wucong.client.dto.mapper
+  configuration:
+    cache-enabled: true
